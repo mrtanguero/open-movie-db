@@ -1,0 +1,56 @@
+.container {
+  margin-top: 5%;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-top: 3%;
+}
+
+h2 {
+  color: grey;
+  font-size: 1.5em;
+  margin-bottom: 3%;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  margin-bottom: 3%;
+}
+
+#title-input {
+  flex: 1;
+}
+
+.search-result {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 3%;
+}
+
+.search-result table {
+  flex: 1;
+}
+
+th {
+  vertical-align: top;
+}
+
+.search-result .img-container {
+  max-width: 50%;
+  height: auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}

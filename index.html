@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Movie Database App</title>
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">
+        <i class="fas fa-film"></i> The Open Movie DataBase
+      </h1>
+      <h2 class="text-center">
+        Svi podaci o Vašim omiljenim filmovima i serijama na jednom mjestu!
+      </h3>
+        <form class="col-10 offset-1" action="GET">
+          <input id="title-input" class="form-control" type="text" placeholder="Unesite ime filma ili serije" required>
+          <select name="type" id="type" class="form-control col-2">
+            <option value="movie">Filmovi</option>
+            <option value="series">Serije</option>
+          </select>
+          <input id="year" type="text" class="form-control col-2" placeholder="Godina">
+          <button type="submit" class="btn btn-info"><i class="fas fa-search"></i> Pretraga</button>
+        </form>
+      <div class="search-result col-10 offset-1">
+        <div class="img-container">
+          <img src="https://images.unsplash.com/photo-1607740088628-2608a14bf5d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80" alt="">
+        </div>
+          <table>
+          <tbody>
+            <tr>
+              <th>Naslov:</th>
+              <td>Naslov</td>
+            </tr>
+            <tr>
+              <th>Godina:</th>
+              <td>Godina</td>
+            </tr>
+            <tr>
+              <th>Datum objavljivanja:</th>
+              <td>Datum objavljivanja</td>
+            </tr>
+            <tr>
+              <th>Trajanje:</th>
+              <td>Trajanje</td>
+            </tr>
+            <tr>
+              <th>Režiser:</th>
+              <td>Režiser</td>
+            </tr>
+            <tr>
+              <th>Glumci:</th>
+              <td>Glumci</td>
+            </tr>
+            <tr>
+              <th>Radnja:</th>
+              <td>Radnja</td>
+            </tr>
+            <tr>
+              <th>Broj sezone:</th>
+              <td>Broj sezone</td>
+            </tr>
+            <tr>
+              <th>Ocjene gledalaca:</th>
+              <td><table>
+                <tbody>
+                  <tr>
+                    <td>Izvor 1</td>
+                    <td>Ocjena</td>
+                  </tr>
+                  <tr>
+                    <td>Izvor 2</td>
+                    <td>Ocjena</td>
+                  </tr>
+                  <tr>
+                    <td>Izvor 3</td>
+                    <td>Ocjena</td>
+                  </tr>
+                </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!-- movie film icon - <i class="fas fa-film"></i> -->
+<!-- <i class="fas fa-search"></i> -->
