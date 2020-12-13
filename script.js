@@ -3,6 +3,9 @@ const API_KEY = "324e5aaa";
 $(document).ready(function () {
   $("form").submit((e) => {
     e.preventDefault();
+    $(".search-result").empty();
+    $(".container").removeClass("empty");
+    showSpinner();
     const url = createURL();
     callAPI(url);
   });
@@ -10,8 +13,6 @@ $(document).ready(function () {
 
 function createURL() {
   const title = $("#title-input").val();
-  if (!title) return;
-
   const type = $("#type").val();
   const year = $("#year").val();
   const url = `http://www.omdbapi.com/?apikey=${API_KEY}&t=${title}&type=${type}${
@@ -35,14 +36,24 @@ function callAPI(url) {
 
 function render(res) {
   const markup = generateMarkup(res);
-  $(".search-result").empty();
+  $(".search-result").hide();
   $(".search-result").append(markup);
+  $("img")
+    .one("load", function () {
+      removeSpinner();
+      $(".search-result").show();
+    })
+    .each(function () {
+      if (this.complete) {
+        $(this).trigger("load"); // For jQuery >= 3.0
+      }
+    });
 }
 
 function generateMarkup(res) {
   if (res.Response === "False") {
     return `
-      <h2 class="error col-8 offset-2">Nema rezultata Vaše pretrage u bazi. Probajte nešto drugo!</h2> 
+      <h2 class="error">Nema rezultata Vaše pretrage u bazi. Probajte nešto drugo!</h2> 
     `;
   }
   return `
@@ -107,4 +118,15 @@ function generateMarkup(res) {
       </tbody>
     </table>
   `;
+}
+
+function showSpinner() {
+  $(".spinner-container").empty();
+  $(".spinner-container").append(
+    "<i class='fas fa-spinner fa-spin fa-3x'></i>"
+  );
+}
+
+function removeSpinner() {
+  $(".spinner-container").empty();
 }
