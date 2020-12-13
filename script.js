@@ -3,14 +3,20 @@ const API_KEY = "324e5aaa";
 $(document).ready(function () {
   $("form").submit((e) => {
     e.preventDefault();
+
+    // Isprazni div u koji treba smjestiti rezultate (ako je već nešto bilo)
     $(".search-result").empty();
+
+    // Klasa koja animira formu po pojavljivanju rezultata
     $(".container").removeClass("empty");
+
     showSpinner();
     const url = createURL();
     callAPI(url);
   });
 });
 
+// Funkcija koja kreira url od podataka dobijenih iz forme
 function createURL() {
   const title = $("#title-input").val();
   const type = $("#type").val();
@@ -21,6 +27,7 @@ function createURL() {
   return url;
 }
 
+// Funkcija koja odrađuje AJAX poziv
 function callAPI(url) {
   $.ajax({
     type: "GET",
@@ -34,22 +41,39 @@ function callAPI(url) {
   });
 }
 
+// Funkcija koja renderuje rezultat ili grešku
 function render(res) {
   const markup = generateMarkup(res);
+
+  // Sakrij div sa rezultatima (dok se sve ne učita)
   $(".search-result").hide();
+  $(".fa-spinner").addClass("margin-bottom");
   $(".search-result").append(markup);
+
+  // Ako nema rezultata
+  if (res.Response === "False") {
+    removeSpinner();
+    $(".search-result").show();
+    clearInputs();
+    return;
+  }
+
+  // Čekanje na učitavanje slike prije nego prikažemo cio div
   $("img")
     .one("load", function () {
       removeSpinner();
       $(".search-result").show();
+      clearInputs();
     })
     .each(function () {
       if (this.complete) {
-        $(this).trigger("load"); // For jQuery >= 3.0
+        $(this).trigger("load");
       }
     });
 }
 
+// Funkcija koja uzima podatke koje API vrati i generiše markup koji kasnije
+// dodajemo (ili poruku da nema rezultata) u render() funkciji
 function generateMarkup(res) {
   if (res.Response === "False") {
     return `
@@ -120,6 +144,7 @@ function generateMarkup(res) {
   `;
 }
 
+// Helper - prikazuje spinner
 function showSpinner() {
   $(".spinner-container").empty();
   $(".spinner-container").append(
@@ -127,6 +152,14 @@ function showSpinner() {
   );
 }
 
+// Helper - uklanja  spinner
 function removeSpinner() {
   $(".spinner-container").empty();
+}
+
+// Helper - očisti inpute i vraća fokus na prvi input
+function clearInputs() {
+  $("#title-input").val("");
+  $("#year").val("");
+  $("#title-input").focus();
 }

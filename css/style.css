@@ -21,8 +21,12 @@ select {
 
 .fa-spinner {
   color: #44a2b8;
-  margin-bottom: 30px;
+  margin: 15px auto;
   /* text-align: center; */
+}
+
+.margin-bottom {
+  margin-bottom: 60px;
 }
 
 h1 {
@@ -105,6 +109,15 @@ img {
   color: rgb(211, 89, 89);
 }
 
+/********************************/
+/* MEDIA QUERIES  */
+
+@media only screen and (max-width: 1200px) {
+  .margin-bottom {
+    margin-bottom: 53px;
+  }
+}
+
 @media only screen and (max-width: 992px) {
   h1 {
     font-size: 1.8em;
@@ -141,6 +154,10 @@ img {
   #year {
     flex: 1;
   }
+
+  .margin-bottom {
+    margin-bottom: 70px;
+  }
 }
 
 @media only screen and (max-width: 762px) {
@@ -159,6 +176,10 @@ img {
     flex-direction: column;
     align-items: center;
   }
+
+  .margin-bottom {
+    margin-bottom: 40px;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -174,5 +195,9 @@ img {
 
   .container.empty {
     transform: translateY(20vh);
+  }
+
+  .margin-bottom {
+    margin-bottom: 30px;
   }
 }
