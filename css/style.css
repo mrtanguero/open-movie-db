@@ -1,3 +1,7 @@
+body {
+  color: rgb(44, 44, 44);
+}
+
 .container {
   margin-top: 3%;
   margin-bottom: 3%;
@@ -7,8 +11,8 @@
   transition: all 0.5s ease;
 }
 
-select {
-  color: #44a2b8;
+.custom-select {
+  color: rgb(44, 44, 44);
 }
 
 .container.empty {
@@ -54,10 +58,12 @@ option {
 }
 #title-input {
   flex: 3;
+  color:rgb(44, 44, 44);
 }
 
 #type,
 #year {
+  rgb(44, 44, 44);
   flex: 1;
 }
 

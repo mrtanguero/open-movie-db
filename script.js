@@ -21,7 +21,7 @@ function createURL() {
   const title = $("#title-input").val();
   const type = $("#type").val();
   const year = $("#year").val();
-  const url = `http://www.omdbapi.com/?apikey=${API_KEY}&t=${title}&type=${type}${
+  const url = `https://www.omdbapi.com/?apikey=${API_KEY}&t=${title}&type=${type}${
     !year ? "" : "&y=" + year
   }`;
   return url;
