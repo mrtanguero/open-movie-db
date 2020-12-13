@@ -222,8 +222,13 @@ img {
 
   .search-result table th {
     width: 100%;
+    font-size: 1.2em;
     padding-top: 10px;
     padding-bottom: 0;
+  }
+
+  table tr:last-of-type th{
+    padding-bottom: 5px;
   }
 
   .ratings-table {
@@ -240,6 +245,7 @@ img {
   } 
 
   img {
+    margin-top: 15px;
     margin-bottom: -15px;
   }
 
