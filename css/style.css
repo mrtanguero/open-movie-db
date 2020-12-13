@@ -58,12 +58,12 @@ select {
 
 #title-input {
   flex: 3;
-  color:rgb(44, 44, 44);
+  color: rgb(44, 44, 44);
 }
 
 #type,
 #year {
-  rgb(44, 44, 44);
+  color: rgb(44, 44, 44);
   flex: 1;
 }
 
@@ -209,13 +209,13 @@ img {
 }
 
 @media only screen and (max-width: 500px) {
-  .search-result>table>tbody>tr {
+  .search-result > table > tbody > tr {
     display: flex;
     flex-direction: column;
     text-align: center;
   }
 
-  .search-result>table>tbody>tr>td {
+  .search-result > table > tbody > tr > td {
     padding-bottom: 10px;
   }
 
@@ -226,7 +226,7 @@ img {
     padding-bottom: 0;
   }
 
-  table tr:last-of-type th{
+  table tr:last-of-type th {
     padding-bottom: 5px;
   }
 
@@ -241,11 +241,10 @@ img {
 
   .ratings-table tr td:last-child {
     text-align: right;
-  } 
+  }
 
   img {
     margin-top: 15px;
     margin-bottom: -15px;
   }
-
 }
