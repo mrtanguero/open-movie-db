@@ -1,6 +1,9 @@
 const API_KEY = "324e5aaa";
 
 $(document).ready(function () {
+  // Očisti sve inpute kada fokusiramo title input
+  $("#title-input").on("focusin", clearInputs);
+
   $("form").submit((e) => {
     e.preventDefault();
 
@@ -54,7 +57,6 @@ function render(res) {
   if (res.Response === "False") {
     removeSpinner();
     $(".search-result").show();
-    clearInputs();
     return;
   }
 
@@ -63,7 +65,6 @@ function render(res) {
     .one("load", function () {
       removeSpinner();
       $(".search-result").show();
-      clearInputs();
     })
     .each(function () {
       if (this.complete) {
