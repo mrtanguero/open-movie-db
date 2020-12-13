@@ -157,9 +157,8 @@ function removeSpinner() {
   $(".spinner-container").empty();
 }
 
-// Helper - očisti inpute i vraća fokus na prvi input
+// Helper - očisti inpute
 function clearInputs() {
   $("#title-input").val("");
   $("#year").val("");
-  $("#title-input").focus();
 }
