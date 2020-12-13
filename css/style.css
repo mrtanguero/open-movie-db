@@ -1,7 +1,9 @@
 .container {
-  margin-top: 5%;
-  border: 1px solid rgb(230, 230, 230);
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 10px;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -38,19 +40,31 @@ form {
   flex: 1;
 }
 
-th {
+th,
+td {
   vertical-align: top;
+  padding: 5px;
+}
+
+tr:not(:last-child) {
+  border-bottom: 1px solid rgb(231, 231, 231);
+}
+
+th {
+  width: 40%;
+  /* text-align: right; */
 }
 
 .search-result .img-container {
-  max-width: 50%;
+  width: 45%;
   height: auto;
   border-radius: 5px;
   overflow: hidden;
+  /* object-fit: cover; */
 }
 
 img {
   width: 100%;
-  height: 400px;
+  height: auto;
   object-fit: cover;
 }
