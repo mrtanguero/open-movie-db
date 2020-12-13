@@ -25,7 +25,6 @@ function callAPI(url) {
     type: "GET",
     url: url,
     success: (response) => {
-      console.log(response);
       render(response);
     },
     error: (err) => {
@@ -34,7 +33,18 @@ function callAPI(url) {
   });
 }
 
+function render(res) {
+  const markup = generateMarkup(res);
+  $(".search-result").empty();
+  $(".search-result").append(markup);
+}
+
 function generateMarkup(res) {
+  if (res.Response === "False") {
+    return `
+      <h2 class="error col-8 offset-2">Nema rezultata Vaše pretrage u bazi. Probajte nešto drugo!</h2> 
+    `;
+  }
   return `
     <div class="img-container">
       <img src="${res.Poster}" alt="${res.Title} poster">
@@ -80,7 +90,7 @@ function generateMarkup(res) {
       <tr>
         <th>Ocjene gledalaca:</th>
         <td>
-          <table>
+          <table class="ratings-table">
             <tbody>
             ${res.Ratings.map((rating) => {
               return `
@@ -97,10 +107,4 @@ function generateMarkup(res) {
       </tbody>
     </table>
   `;
-}
-
-function render(res) {
-  const markup = generateMarkup(res);
-  $(".search-result").empty();
-  $(".search-result").append(markup);
 }

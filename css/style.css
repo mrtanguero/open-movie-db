@@ -51,20 +51,31 @@ tr:not(:last-child) {
 }
 
 th {
-  width: 40%;
-  /* text-align: right; */
-}
-
-.search-result .img-container {
-  width: 45%;
-  height: auto;
-  border-radius: 5px;
-  overflow: hidden;
-  /* object-fit: cover; */
+  width: 185px;
 }
 
 img {
-  width: 100%;
-  height: auto;
+  /* width: 100%;
+  height: auto; */
   object-fit: cover;
+  border-radius: 5px;
+}
+
+.ratings-table tr td:first-child {
+  padding-left: 0;
+}
+
+.ratings-table tr td:last-child {
+  padding-left: 20px;
+}
+
+.ratings-table tr:first-child td {
+  padding-top: 0;
+}
+
+.error {
+  text-align: center;
+  /* position: absolute;
+  left: 50%;
+  transform: translateX(-50%); */
 }
