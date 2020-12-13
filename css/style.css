@@ -53,9 +53,10 @@ form {
   margin-bottom: 4%;
 }
 
-option {
-  padding-top: 20px;
+select {
+  cursor: pointer;
 }
+
 #title-input {
   flex: 3;
   color:rgb(44, 44, 44);
@@ -206,4 +207,40 @@ img {
   .margin-bottom {
     margin-bottom: 30px;
   }
+}
+
+@media only screen and (max-width: 500px) {
+  .search-result>table>tbody>tr {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .search-result>table>tbody>tr>td {
+    padding-bottom: 10px;
+  }
+
+  .search-result table th {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  .ratings-table {
+    margin: auto;
+    width: 80%;
+  }
+
+  .ratings-table tr td:first-child {
+    text-align: left;
+  }
+
+  .ratings-table tr td:last-child {
+    text-align: right;
+  } 
+
+  img {
+    margin-bottom: -15px;
+  }
+
 }
