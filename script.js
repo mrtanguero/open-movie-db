@@ -53,8 +53,8 @@ function render(res) {
   $(".fa-spinner").addClass("margin-bottom");
   $(".search-result").append(markup);
 
-  // Ako nema rezultata
-  if (res.Response === "False") {
+  // Ako nema rezultata ili ako nema postera
+  if (res.Response === "False" || res.Poster === "N/A") {
     removeSpinner();
     $(".search-result").show();
     return;
