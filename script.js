@@ -10,9 +10,6 @@ $(document).ready(function () {
     // Isprazni div u koji treba smjestiti rezultate (ako je već nešto bilo)
     $(".search-result").empty();
 
-    // Klasa koja animira formu po pojavljivanju rezultata
-    $(".container").removeClass("empty");
-
     showSpinner();
     const url = createURL();
     callAPI(url);
@@ -54,7 +51,7 @@ function render(res) {
   $(".search-result").append(markup);
 
   // Ako nema rezultata ili ako nema postera
-  if (res.Response === "False" || res.Poster === "N/A") {
+  if (res.Response === "False") {
     removeSpinner();
     $(".search-result").show();
     return;
@@ -63,6 +60,8 @@ function render(res) {
   // Čekanje na učitavanje slike prije nego prikažemo cio div
   $("img")
     .one("load", function () {
+      // Klasa koja animira formu po pojavljivanju rezultata
+      $(".container").removeClass("empty");
       removeSpinner();
       $(".search-result").show();
     })
@@ -83,7 +82,11 @@ function generateMarkup(res) {
   }
   return `
     <div class="img-container">
-      <img src="${res.Poster}" alt="${res.Title} poster">
+      <img src="${
+        res.Poster !== "N/A" ? res.Poster : "./img/default-poster.png"
+      }" 
+        alt="${res.Title} poster"
+      />
     </div>
     <table>
     <tbody>
