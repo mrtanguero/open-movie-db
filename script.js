@@ -50,7 +50,7 @@ function render(res) {
   $(".fa-spinner").addClass("margin-bottom");
   $(".search-result").append(markup);
 
-  // Ako nema rezultata ili ako nema postera
+  // Ako nema rezultata
   if (res.Response === "False") {
     removeSpinner();
     $(".search-result").show();
